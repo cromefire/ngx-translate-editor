@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 // the resulting javascript file will look as if you never imported the module at all.
 
 import { ElectronService } from './electron.service';
-import { remote } from 'electron';
+import * as remote from '@electron/remote';
 
 @Injectable({
   providedIn: 'root'

@@ -14,25 +14,22 @@ import { ProjectItemSettingsComponent } from './project-item-settings/project-it
 import { ProjectCreateKeyDialogComponent } from './project-create-key-dialog/project-create-key-dialog.component';
 
 @NgModule({
-  declarations: [
-    ProjectItemComponent,
-    ProjectListComponent,
-    ProjectCreateDialogComponent,
-    ProjectCreateKeyDialogComponent,
-    ProjectItemSettingsComponent,
-    SearchKeyByNamePipe
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    ProjectRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    FormsModule,
-    CdkTreeModule,
-  ],
-  entryComponents: [
-    ProjectCreateDialogComponent, ProjectCreateKeyDialogComponent
-  ]
+    declarations: [
+        ProjectItemComponent,
+        ProjectListComponent,
+        ProjectCreateDialogComponent,
+        ProjectCreateKeyDialogComponent,
+        ProjectItemSettingsComponent,
+        SearchKeyByNamePipe
+    ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        ProjectRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        FormsModule,
+        CdkTreeModule,
+    ]
 })
 export class ProjectModule { }

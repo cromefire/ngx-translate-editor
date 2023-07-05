@@ -8,16 +8,15 @@ import {ProjectRoutingModule} from "../project/project-routing.module";
 import {CdkTreeModule} from "@angular/cdk/tree";
 
 @NgModule({
-  declarations: [ApplicationSettingsDialogComponent],
-  imports: [
-    CommonModule,
-    SharedModule,
-    ProjectRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    FormsModule,
-    CdkTreeModule,
-  ],
-  entryComponents: [ ApplicationSettingsDialogComponent ]
+    declarations: [ApplicationSettingsDialogComponent],
+    imports: [
+        CommonModule,
+        SharedModule,
+        ProjectRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        FormsModule,
+        CdkTreeModule,
+    ]
 })
 export class ApplicationModule { }

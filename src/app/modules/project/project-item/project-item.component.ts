@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, HostListener } from '@angular/core';
 import { ProjectModel } from 'app/core/models/project.model';
-import { FormControl, FormGroup} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import {KeyModel, KeyModelWithLanguages, LanguagesModelWithKey} from "ngx-translate-lint";
 import { MatDialog } from "@angular/material/dialog";
 import { ProjectCreateKeyDialogComponent } from "../project-create-key-dialog/project-create-key-dialog.component";
@@ -22,8 +22,8 @@ export class ProjectItemComponent implements OnInit {
 
   public showFiller = false;
   public projectKeys: KeyModelWithLanguages[]  = [];
-  public projectItemKeysForm: FormGroup;
-  public projectKeySearchControl: FormControl = new FormControl();
+  public projectItemKeysForm: UntypedFormGroup;
+  public projectKeySearchControl: UntypedFormControl = new UntypedFormControl();
 
   constructor(
     private fileService: FilesService,
@@ -116,7 +116,7 @@ export class ProjectItemComponent implements OnInit {
         const keyModel = new KeyModelWithLanguages(result.name, this.getProjectLanguages());
         this.projectKeys.unshift(keyModel);
         keyModel.languages.forEach((lang, index) => {
-          this.projectItemKeysForm.addControl(index + result.name, new FormControl(lang.keyValue || ""));
+          this.projectItemKeysForm.addControl(index + result.name, new UntypedFormControl(lang.keyValue || ""));
         });
       }
     });
@@ -130,10 +130,10 @@ export class ProjectItemComponent implements OnInit {
   }
 
   private buildForm(): void {
-    this.projectItemKeysForm = new FormGroup({});
+    this.projectItemKeysForm = new UntypedFormGroup({});
     this.project.keysModel.forEach((key) => {
       key.languages.forEach((lang, index) => {
-        this.projectItemKeysForm.addControl(index + key.name, new FormControl(lang.keyValue));
+        this.projectItemKeysForm.addControl(index + key.name, new UntypedFormControl(lang.keyValue));
       });
     });
 

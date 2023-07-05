@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {UntypedFormControl, UntypedFormGroup} from "@angular/forms";
 
 import {ProjectModel} from "../../../core/models/project.model";
 import {ElectronService} from "../../../core/services";
@@ -11,11 +11,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./project-create-dialog.component.scss']
 })
 export class ProjectCreateDialogComponent implements OnInit {
-  public projectFormGroup: FormGroup;
-  public projectIdControl: FormControl = new FormControl();
-  public projectNameControl: FormControl = new FormControl();
-  public projectViewPathControl: FormControl = new FormControl();
-  public projectLanguagesPathControl: FormControl = new FormControl();
+  public projectFormGroup: UntypedFormGroup;
+  public projectIdControl: UntypedFormControl = new UntypedFormControl();
+  public projectNameControl: UntypedFormControl = new UntypedFormControl();
+  public projectViewPathControl: UntypedFormControl = new UntypedFormControl();
+  public projectLanguagesPathControl: UntypedFormControl = new UntypedFormControl();
 
   constructor(
     public dialogRef: MatDialogRef<ProjectCreateDialogComponent>,
@@ -57,11 +57,11 @@ export class ProjectCreateDialogComponent implements OnInit {
   }
 
   private buildForm(): void {
-    this.projectIdControl = new FormControl(this.project.id);
-    this.projectNameControl = new FormControl(this.project.name);
-    this.projectViewPathControl = new FormControl(this.project.viewPath);
-    this.projectLanguagesPathControl = new FormControl(this.project.languagesPath);
-    this.projectFormGroup = new FormGroup({
+    this.projectIdControl = new UntypedFormControl(this.project.id);
+    this.projectNameControl = new UntypedFormControl(this.project.name);
+    this.projectViewPathControl = new UntypedFormControl(this.project.viewPath);
+    this.projectLanguagesPathControl = new UntypedFormControl(this.project.languagesPath);
+    this.projectFormGroup = new UntypedFormGroup({
       id: this.projectIdControl,
       name: this.projectNameControl,
       viewPath: this.projectViewPathControl,

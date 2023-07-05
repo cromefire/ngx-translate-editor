@@ -1,6 +1,6 @@
 import { LanguagesShortEnum } from 'app/core/enum';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AppSettingsLowdbService } from "../../../core/services/lowdb/app.settings.lowdb.service";
 import { TranslateService } from "@ngx-translate/core";
@@ -16,8 +16,8 @@ export class ApplicationSettingsDialogComponent implements OnInit {
   public appSettings: AppSettingsModel;
   public languagesList: LanguagesShortEnum[] = [ LanguagesShortEnum.en, LanguagesShortEnum.ru ]
 
-  public appSettingsFormGroup: FormGroup;
-  public languagesControl: FormControl = new FormControl();
+  public appSettingsFormGroup: UntypedFormGroup;
+  public languagesControl: UntypedFormControl = new UntypedFormControl();
 
   constructor(
     private translateService: TranslateService,
@@ -37,7 +37,7 @@ export class ApplicationSettingsDialogComponent implements OnInit {
 
   public buildForm(): void {
     this.languagesControl.setValue(this.appSettings.language);
-    this.appSettingsFormGroup = new FormGroup({
+    this.appSettingsFormGroup = new UntypedFormGroup({
       language: this.languagesControl,
     });
   }

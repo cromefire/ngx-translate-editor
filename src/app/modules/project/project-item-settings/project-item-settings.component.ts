@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {UntypedFormControl, UntypedFormGroup} from "@angular/forms";
 import {ErrorTypes} from "ngx-translate-lint";
 import {ProjectMainSettingModel, ProjectModel} from "../../../core/models";
 
@@ -14,10 +14,10 @@ export class ProjectItemSettingsComponent implements OnInit {
   @Output() saveProjectLintingSettingsEmitter: EventEmitter<ProjectMainSettingModel> = new EventEmitter<ProjectMainSettingModel>();
 
   public errorTypesList: ErrorTypes[] = [ ErrorTypes.disable, ErrorTypes.error, ErrorTypes.warning ];
-  public projectItemSettingsForm: FormGroup;
-  public projectLintingSettingsForm: FormGroup;
-  public projectLintingViewsControl: FormControl = new FormControl();
-  public projectLintingZombieControl: FormControl = new FormControl();
+  public projectItemSettingsForm: UntypedFormGroup;
+  public projectLintingSettingsForm: UntypedFormGroup;
+  public projectLintingViewsControl: UntypedFormControl = new UntypedFormControl();
+  public projectLintingZombieControl: UntypedFormControl = new UntypedFormControl();
   constructor() { }
 
   ngOnInit(): void {
@@ -39,8 +39,8 @@ export class ProjectItemSettingsComponent implements OnInit {
   private buildForm(): void {
     this.projectLintingViewsControl.setValue(this.project.settings.linting.views);
     this.projectLintingZombieControl.setValue(this.project.settings.linting.zombies);
-    this.projectItemSettingsForm = new FormGroup({});
-    this.projectLintingSettingsForm = new FormGroup({
+    this.projectItemSettingsForm = new UntypedFormGroup({});
+    this.projectLintingSettingsForm = new UntypedFormGroup({
       views: this.projectLintingViewsControl,
       zombies: this.projectLintingZombieControl,
     });

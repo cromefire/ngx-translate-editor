@@ -1,6 +1,6 @@
 import * as shortId from 'shortid';
 import { MatDialog } from "@angular/material/dialog";
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
 
@@ -20,7 +20,7 @@ import { ApplicationSettingsDialogComponent } from "../../application/applicatio
 })
 export class ProjectListComponent implements OnInit {
   public projects: ProjectModel[] = [];
-  public selected = new FormControl(0);
+  public selected = new UntypedFormControl(0);
 
   constructor(
     public dialog: MatDialog,

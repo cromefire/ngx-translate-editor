@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {KeyModelWithLanguages} from "ngx-translate-lint";
-import {FormControl, FormGroup} from "@angular/forms";
+import {UntypedFormControl, UntypedFormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-project-create-key-dialog',
@@ -9,8 +9,8 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./project-create-key-dialog.component.scss']
 })
 export class ProjectCreateKeyDialogComponent implements OnInit {
-  public keyFormGroup: FormGroup;
-  public keyNameControl: FormControl = new FormControl();
+  public keyFormGroup: UntypedFormGroup;
+  public keyNameControl: UntypedFormControl = new UntypedFormControl();
 
   constructor(
     public dialogRef: MatDialogRef<ProjectCreateKeyDialogComponent>,
@@ -30,8 +30,8 @@ export class ProjectCreateKeyDialogComponent implements OnInit {
   }
 
   private buildForm(): void {
-    this.keyNameControl = new FormControl(this.key.name || "");
-    this.keyFormGroup = new FormGroup({
+    this.keyNameControl = new UntypedFormControl(this.key.name || "");
+    this.keyFormGroup = new UntypedFormGroup({
       name: this.keyNameControl,
     });
   }

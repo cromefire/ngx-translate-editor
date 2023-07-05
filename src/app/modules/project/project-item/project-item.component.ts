@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output, HostListener } from '@a
 import { ProjectModel } from 'app/core/models/project.model';
 import { UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import {KeyModel, KeyModelWithLanguages, LanguagesModelWithKey} from "ngx-translate-lint";
-import { MatDialog } from "@angular/material/dialog";
+import { MatLegacyDialog as MatDialog } from "@angular/material/legacy-dialog";
 import { ProjectCreateKeyDialogComponent } from "../project-create-key-dialog/project-create-key-dialog.component";
 import { NgxTranslateLintService } from "../../../core/services/ngx-translate-lint/ngx-translate-lint.service";
 import { ProjectLowdbService } from "../../../core/services/lowdb/project.lowdb.service";
